@@ -3,30 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HR Policy Chatbot</title>
+    <title>Company Homepage with HR Chat</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>HR Policy Chatbot</h1>
-            <p>Ask a question about our HR policies</p>
-        </div>
-        <div class="chat-box" id="chat-box">
-            <!-- Initial bot message -->
-            <div class="message bot-message">
-                <p>Hello! How can I help you today with our HR policies?</p>
+    <!-- This is your main website content -->
+    <main class="page-content">
+        <h1>Welcome to Our Company Portal</h1>
+        <p>This is a sample page. The HR Chatbot is available in the bottom-right corner.</p>
+        <img src="https://via.placeholder.com/600x300" alt="Placeholder Image">
+        <p>Feel free to browse our site. If you have any questions about HR policies, just click the chat icon!</p>
+    </main>
+    <!-- End of main website content -->
+
+
+    <!-- HR CHATBOT WIDGET START -->
+    <div id="chat-widget-container">
+        <!-- The Chat Window (hidden by default) -->
+        <div id="chat-window">
+            <div class="chat-header">
+                <h3>HR Policy Chatbot</h3>
+                <button id="close-btn" aria-label="Close Chat">×</button>
             </div>
-        </div>
-        <div class="chat-input-container">
+            <div class="chat-box" id="chat-box">
+                <div class="message bot-message">
+                    <p>Hello! How can I help you with our HR policies today?</p>
+                </div>
+            </div>
             <div class="chat-input">
-                <input type="text" id="user-input" placeholder="e.g., 'What is the policy on sick leave?'" autocomplete="off">
-                <button id="send-btn" aria-label="Send Message">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <input type="text" id="user-input" placeholder="Ask a question..." autocomplete="off">
+                <button id="send-btn" aria-label="Send">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </button>
             </div>
         </div>
+        
+        <!-- The Chat Bubble (always visible) -->
+        <button id="chat-bubble" aria-label="Open Chat">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </button>
     </div>
+    <!-- HR CHATBOT WIDGET END -->
+
 </body>
 </html>
