@@ -1,50 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Homepage with HR Chat</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jasper IT Solutions LLC</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- This is your main website content -->
-    <main class="page-content">
-        <h1>Welcome to Our Company Portal</h1>
-        <p>This is a sample page. The HR Chatbot is available in the bottom-right corner.</p>
-        <!-- <img src="https://via.placeholder.com/600x300" alt="Placeholder Image"> -->
-        <p>Feel free to browse our site. If you have any questions about HR policies, just click the chat icon!</p>
-    </main>
-    <!-- End of main website content -->
-
-
-    <!-- HR CHATBOT WIDGET START -->
-    <div id="chat-widget-container">
-        <!-- The Chat Window (hidden by default) -->
-        <div id="chat-window">
-            <div class="chat-header">
-                <h3>HR Policy Chatbot</h3>
-                <button id="close-btn" aria-label="Close Chat">×</button>
-            </div>
-            <div class="chat-box" id="chat-box">
-                <div class="message bot-message">
-                    <p>Hello! How can I help you with our HR policies today?</p>
-                </div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="user-input" placeholder="Ask a question..." autocomplete="off">
-                <button id="send-btn" aria-label="Send">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </button>
-            </div>
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          Jasper IT Solutions LLC
         </div>
-        
-        <!-- The Chat Bubble (always visible) -->
-        <button id="chat-bubble" aria-label="Open Chat">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-        </button>
-    </div>
-    <!-- HR CHATBOT WIDGET END -->
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
 
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Transforming Technology, <span class="highlight">Powering Progress</span></h1>
+        <p>Jasper IT Solutions LLC: Your Future, Your Technology Partner</p>
+        <a href="#contact" class="btn-primary">GET STARTED</a>
+      </div>
+      <div class="hero-visual">
+        <div class="floating-card">
+          <div class="card-icon">💻</div>
+          <h3>Web Development</h3>
+        </div>
+        <div class="floating-card">
+          <div class="card-icon">📱</div>
+          <h3>Mobile Apps</h3>
+        </div>
+        <div class="floating-card">
+          <div class="card-icon">🚀</div>
+          <h3>SEO Services</h3>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Welcome to Jasper IT Solutions LLC</h2>
+          <p class="subtitle"><strong>Technology Partner You Can Trust!</strong></p>
+          <p>Established in 2010, Jasper IT Solutions LLC has built a strong reputation by providing top-tier IT solutions to businesses across diverse sectors. With over a decade of excellence, our expert team is dedicated to driving your success with cutting-edge technology.</p>
+          <div class="stats">
+            <div class="stat">
+              <h3>15+</h3>
+              <p>Years Experience</p>
+            </div>
+            <div class="stat">
+              <h3>500+</h3>
+              <p>Projects Completed</p>
+            </div>
+            <div class="stat">
+              <h3>100+</h3>
+              <p>Happy Clients</p>
+            </div>
+          </div>
+          <a href="#services" class="btn-secondary">Learn More</a>
+        </div>
+        <div class="about-image">
+          <div class="image-placeholder">
+            <div class="tech-icons">
+              <span>⚙️</span>
+              <span>💡</span>
+              <span>🔧</span>
+              <span>📊</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>What We Provide</h2>
+        <p>Get Exceptional Service For Growth</p>
+      </div>
+      <div class="service-cards">
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Website Development</h3>
+          <p>Beautiful, functional websites built by our expert designers and developers.</p>
+          <div class="card-footer">
+            <a href="#" class="learn-more">Learn More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">☁️</div>
+          <h3>Web Hosting</h3>
+          <p>Business-class web hosting with top-tier reliability and speed.</p>
+          <div class="card-footer">
+            <a href="#" class="learn-more">Learn More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>Mobile App Development</h3>
+          <p>Innovative mobile apps to take your business mobile and global.</p>
+          <div class="card-footer">
+            <a href="#" class="learn-more">Learn More →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔍</div>
+          <h3>Search Engine Optimization</h3>
+          <p>Proven SEO strategies to boost visibility and drive traffic.</p>
+          <div class="card-footer">
+            <a href="#" class="learn-more">Learn More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW -->
+  <section class="workflow">
+    <div class="container">
+      <div class="section-header">
+        <h2>We Make It Happen</h2>
+        <p>Working Steps To Follow</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Requirement</h3>
+          <p>Understanding your needs and goals</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Designing</h3>
+          <p>Creating beautiful and functional designs</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Developing</h3>
+          <p>Building robust and scalable solutions</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Quality Assurance</h3>
+          <p>Testing and ensuring perfection</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3>Deployment</h3>
+          <p>Launching your project successfully</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGIES -->
+  <section class="technologies" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tools & Technologies That We Use</h2>
+        <p>UI/UX design, web and mobile development, DevOps, and QA services.</p>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-item">React</div>
+        <div class="tech-item">Node.js</div>
+        <div class="tech-item">Python</div>
+        <div class="tech-item">AWS</div>
+        <div class="tech-item">Docker</div>
+        <div class="tech-item">MongoDB</div>
+        <div class="tech-item">PostgreSQL</div>
+        <div class="tech-item">Vue.js</div>
+      </div>
+      <div class="section-cta">
+        <a href="#contact" class="btn-secondary">View More Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Our Clients Are Saying!</h2>
+      </div>
+      <div class="testimonial-card">
+        <div class="quote-icon">"</div>
+        <blockquote>
+          <p>Jasper IT Solutions LLC is fantastic! They are quick with their product delivery and very pleasant to speak with. I had a website made for my company and what they created exceeded all of my expectations.</p>
+          <footer>
+            <div class="client-info">
+              <div class="client-avatar">CR</div>
+              <div>
+                <strong>Corey Rogers</strong>
+                <span>Owner, HomeWorkxs</span>
+              </div>
+            </div>
+          </footer>
+        </blockquote>
+        <div class="rating">
+          <span>⭐</span>
+          <span>⭐</span>
+          <span>⭐</span>
+          <span>⭐</span>
+          <span>⭐</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-content">
+        <div class="contact-text">
+          <h2>Get In Touch</h2>
+          <p>Our team is ready to assist you. Thank you for visiting!</p>
+          <a href="#" class="btn-primary">Start Now</a>
+        </div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p>Toll Free: (866) 771-6669</p>
+              <p>Office: (713) 574-6501</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p>info@jasperitinc.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>
+            <span class="logo-icon">⚡</span>
+            Jasper IT Solutions LLC
+          </h3>
+          <p>We help businesses establish a strong digital presence with top-notch IT solutions.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Contact Us</h4>
+          <p>Toll Free: (866) 771-6669</p>
+          <p>Office: (713) 574-6501</p>
+          <p>Email: info@jasperitinc.com</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 - Jasper IT Solutions LLC. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- HR CHATBOT WIDGET START -->
+  <div id="chat-widget-container">
+    <div id="chat-window">
+      <div class="chat-header">
+        <h3>HR Policy Chatbot</h3>
+        <button id="close-btn" aria-label="Close Chat">×</button>
+      </div>
+      <div class="chat-box" id="chat-box">
+        <div class="message bot-message">
+          <p>Hello! How can I help you with our HR policies today?</p>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Ask a question..." autocomplete="off">
+        <button id="send-btn" aria-label="Send">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <button id="chat-bubble" aria-label="Open Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+  </div>
+  <!-- HR CHATBOT WIDGET END -->
 </body>
 </html>
