@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const sendBtn = document.getElementById("send-btn");
 
   // --- API Configuration ---
-//   const API_URL = "https://making-chatbot.fly.dev/api/chat";
-  const API_URL = "http://127.0.0.1:8000/api/chat";
+  const API_URL = "https://making-chatbot.fly.dev/api/chat";
+//   const API_URL = "http://127.0.0.1:8000/api/chat";
 
   // --- State Management ---
   let conversationHistory = [];
