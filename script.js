@@ -6,27 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatBox = document.getElementById("chat-box");
   const userInput = document.getElementById("user-input");
   const sendBtn = document.getElementById("send-btn");
-
-  // --- API Configuration ---
-  const API_URL = "https://making-chatbot.fly.dev/api/chat";
-//   const API_URL = "http://127.0.0.1:8000/api/chat";
-
-  // --- State Management ---
+  const API_URL = "http://localhost:8000/api/chat";
+//   const API_URL = "https://making-chatbot.fly.dev/api/chat";
   let conversationHistory = [];
 
-  // --- Warmup Backend on Page Load ---
-  warmupBackend();
-
-  // --- Quick Actions Data ---
-  const quickActions = [
-    "What services do you offer?",
-    "Tell me about your company",
-    "How can I get started?",
-    "What technologies do you use?",
-    "Contact information",
-  ];
-
-  // --- Warmup Function ---
+  // (All other functions like warmupBackend, initializeChat, etc., are unchanged)
   async function warmupBackend() {
     try {
       console.log("🔥 Warming up backend...");
@@ -36,9 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          messages: [{ role: "user", content: "ping" }],
-        }),
+        body: JSON.stringify({ messages: [{ role: "user", content: "ping" }] }),
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
@@ -51,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => updateChatBubbleStatus(false), 1000);
     }
   }
-
   function updateChatBubbleStatus(isWarming = false) {
     if (isWarming) {
       chatBubble.classList.add("warming");
@@ -61,8 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
       chatBubble.setAttribute("title", "Chat with Jasper IT Assistant");
     }
   }
-
-  // --- Event Listeners ---
   chatBubble.addEventListener("click", () => {
     chatWindow.classList.toggle("open");
     if (chatWindow.classList.contains("open")) userInput.focus();
@@ -76,10 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- Initialization ---
+  const quickActions = ["What services do you offer?", "Tell me about your company", "How can I get started?"];
   initializeChat();
 
-  // --- Core Logic ---
   function initializeChat() {
     chatBox.innerHTML = "";
     const savedHistory = localStorage.getItem("jasperChatHistory");
@@ -87,14 +65,10 @@ document.addEventListener("DOMContentLoaded", () => {
       conversationHistory = JSON.parse(savedHistory);
       conversationHistory.forEach(message => {
         if (message.role === 'user' || message.role === 'assistant') {
-          if (message.role === 'assistant') {
-            appendEnhancedMessage(message.content, message.sources);
-          } else {
-            appendMessage(message.content, "user");
-          }
+          if (message.role === 'assistant') appendEnhancedMessage(message.content, message.sources);
+          else appendMessage(message.content, "user");
         }
       });
-      console.log("Chat history loaded from localStorage.");
     } else {
       conversationHistory = [];
       const welcomeMessageDiv = document.createElement("div");
@@ -105,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     scrollToBottom();
   }
-
   function handleSendMessage() {
     const userText = userInput.value.trim();
     if (!userText) return;
@@ -115,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
     userInput.focus();
     sendHistoryToApi();
   }
-  
   async function sendHistoryToApi() {
     const loadingMessageEl = showLoadingIndicator();
     try {
@@ -135,23 +107,20 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       console.error("Failed to fetch from API:", error);
       if (chatBox.contains(loadingMessageEl)) chatBox.removeChild(loadingMessageEl);
-      const errorMessage = `I apologize, but I'm experiencing technical difficulties. Please try again in a moment.`;
+      const errorMessage = `I apologize, but I'm experiencing technical difficulties.`;
       appendMessage(errorMessage, "bot", [], "error");
     }
   }
-
   function updateHistory(message) {
     conversationHistory.push(message);
     localStorage.setItem("jasperChatHistory", JSON.stringify(conversationHistory));
   }
-
-  // --- UI Helper Functions ---
   function createQuickActions() {
     const container = document.createElement("div");
     container.classList.add("quick-actions");
     const title = document.createElement("div");
     title.classList.add("quick-actions-title");
-    title.textContent = "Quick questions you can ask:";
+    title.textContent = "Quick questions:";
     const grid = document.createElement("div");
     grid.classList.add("quick-actions-grid");
     container.appendChild(title);
@@ -169,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     return container;
   }
-
   function appendMessage(text, sender, sources = [], messageType = "normal") {
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("message", `${sender}-message`);
@@ -177,24 +145,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const p = document.createElement("p");
     p.textContent = text;
     messageDiv.appendChild(p);
-    messageDiv.appendChild(createEnhancedSourcesContainer(sources)); // Still call it, but it will be empty
+    messageDiv.appendChild(createEnhancedSourcesContainer(sources));
     chatBox.appendChild(messageDiv);
     scrollToBottom();
   }
-
   function appendEnhancedMessage(text, sources = []) {
     const messageDiv = document.createElement("div");
     messageDiv.classList.add("message", "bot-message");
     const p = document.createElement("p");
     p.innerHTML = formatBotResponse(text);
     messageDiv.appendChild(p);
-    messageDiv.appendChild(createEnhancedSourcesContainer(sources)); // Still call it, but it will be empty
+    messageDiv.appendChild(createEnhancedSourcesContainer(sources));
     chatBox.appendChild(messageDiv);
     scrollToBottom();
   }
-
+  
+  // <--- CHANGE: Added a rule to handle **bold** markdown --->
   function formatBotResponse(text) {
     return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Converts **bold** to <strong>bold</strong>
       .replace(/(\d+\.\s)/g, "<br><strong>$1</strong>")
       .replace(/Based on the provided context,/g, "")
       .replace(/the following (documents|services|information) (are|is) mentioned:/gi,"<strong>Here's what I found:</strong>")
@@ -202,14 +171,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/The provided (documents|information) do not contain/gi,"<br><br><em>Note: I don't have specific information about</em>");
   }
 
-  // <--- CHANGE: THIS IS THE ONLY FUNCTION THAT HAS BEEN MODIFIED --->
   function createEnhancedSourcesContainer(sources) {
-    // This function now returns an empty, non-visible element.
-    // This effectively hides the "Source References" section from the UI
-    // without needing to change any other code.
     return document.createDocumentFragment();
   }
-
   function showLoadingIndicator() {
     const loadingDiv = document.createElement("div");
     loadingDiv.classList.add("message", "loading-message");
@@ -218,11 +182,9 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollToBottom();
     return loadingDiv;
   }
-
   function scrollToBottom() {
     chatBox.scrollTop = chatBox.scrollHeight;
   }
-
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && chatWindow.classList.contains("open")) {
       chatWindow.classList.remove("open");
