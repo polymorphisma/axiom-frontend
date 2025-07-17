@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInput = document.getElementById("user-input");
   const sendBtn = document.getElementById("send-btn");
 //   const API_URL = "http://localhost:8000/api/chat";
-//   const API_URL = "https://making-chatbot.fly.dev/api/chat";
-    const API_URL = "https://axiom.sandbox.adex.ltd/api/chat";
+  const API_URL = "https://making-chatbot.fly.dev/api/chat";
+    // const API_URL = "https://axiom.sandbox.adex.ltd/api/chat";
 
   let conversationHistory = [];
 
